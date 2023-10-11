@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     //public float AttackRange = 0; // 공격 범위 (보류)
     public float PlayerSpeed; // 플레이어 이동 속도
 
+    public Vector3 newVelocity;
     private Rigidbody2D playerRB;
     private float hAxis;
     private float vAxis;
@@ -63,7 +64,7 @@ public class Player : MonoBehaviour
         float hSpeed = hAxis * PlayerSpeed;
         float vSpeed = vAxis * PlayerSpeed;
 
-        Vector3 newVelocity = new Vector3(hSpeed, vSpeed, 0);
+        newVelocity = new Vector3(hSpeed, vSpeed, 0);
 
         playerRB.velocity = newVelocity;
     }
