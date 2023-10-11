@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,18 +18,28 @@ public class Monster : MonoBehaviour
     [Range(1, 3)]
     public int MonsterTyoe;
 
-    public GameObject target;
-    NavMeshAgent agent;
+    public Rigidbody2D target;
 
     private float MonsterHP; //몬스터 체력
     private float MonsterAD = 10; //몬스터 공격력
 
+    public float speed;
+
     private MonsterSpawn monsterSpawn;
 
-    // Start is called before the first frame update
+    SpriteRenderer spriter;
+    Rigidbody2D rigid;
+
+    private bool isLive = true;
+
+    private void Awake()
+    {
+        spriter = GetComponent<SpriteRenderer>();
+        rigid = GetComponent<Rigidbody2D>();
+    }
+
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
 
         switch (MonsterTyoe)
         {
@@ -48,12 +59,22 @@ public class Monster : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
+        if (!isLive) return;
 
-        //추적(고정)
-        agent.destination = target.transform.position;
+        //진행 방향
+        Vector2 dirVec = target.position - rigid.position;
+        Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
 
+        rigid.MovePosition(rigid.position + nextVec);
+        rigid.velocity = Vector2.zero;
+
+    }
+
+    private void LateUpdate()
+    {
+        if (!isLive) return;
+        spriter.flipX = target.position.x < rigid.position.x;
     }
 }
