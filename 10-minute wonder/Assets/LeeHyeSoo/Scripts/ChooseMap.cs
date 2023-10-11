@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ChooseMap : MonoBehaviour
 {
-    public GameObject[] map;
-    public GameObject selectMap;
+    public GameObject[] map; // 맵 정보이미지 인덱스
+    public GameObject selectMap; //현재 선택된 맵
+    int selectMapNum = 0; //현재 선택된 맵 번호
 
     private void Start()
     {
@@ -55,18 +56,29 @@ public class ChooseMap : MonoBehaviour
             map[0].SetActive(true);
             map[1].SetActive(false);
             map[2].SetActive(false);
+
+            selectMapNum = 1;
         }
         else if (selectMap == map[1])
         {
             map[0].SetActive(false);
             map[1].SetActive(true);
             map[2].SetActive(false);
+
+            selectMapNum = 2;
         }
         else if (selectMap == map[2])
         {
             map[0].SetActive(false);
             map[1].SetActive(false);
             map[2].SetActive(true);
+
+            selectMapNum = 3;
         }
+    }
+
+    public int selectMapNumber()
+    {
+        return selectMapNum; // 맵 번호 반환 (for 플레이에 적용)
     }
 }

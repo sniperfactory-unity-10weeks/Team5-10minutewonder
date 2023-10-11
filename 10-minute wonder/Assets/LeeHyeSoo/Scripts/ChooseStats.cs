@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseStat : MonoBehaviour
+public class ChooseStats : MonoBehaviour
 {
     public GameObject[] stat;
     public GameObject selectStat;
@@ -10,8 +10,6 @@ public class ChooseStat : MonoBehaviour
     private void Start()
     {
         selectStat = stat[0];
-
-
     }
 
     public void StatRightArrow()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Button : MonoBehaviour
+public class SceneChange : MonoBehaviour
 {
     public void GoToLobbyButton()
     {
@@ -26,6 +26,6 @@ public class Button : MonoBehaviour
     {
         Debug.Log("게임을 완전히 종료하였습니다");
         Application.Quit();
-        
+
     }
 }
