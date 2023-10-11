@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Ground
   - Area
-=======
-  - Enemy
->>>>>>> origin/ssm
   layers:
   - Default
   - TransparentFX

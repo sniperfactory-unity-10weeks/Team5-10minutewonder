@@ -1,20 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<<< HEAD:10-minute wonder/Assets/Scenes/GameClear.unity.meta
-guid: aa8ec786dd258b844ad624b87938260f
-========
-guid: ce89ff4f4289a3349978a2619eaa1fbe
->>>>>>>> origin/ssm:10-minute wonder/Assets/Scenes/Lobby.unity.meta
-DefaultImporter:
-=======
-<<<<<<<< Updated upstream:10-minute wonder/Assets/Prefabs/Bullet.prefab.meta
-guid: 7245d4be6bd04c944ba9323a2e2f8b52
-PrefabImporter:
-========
 guid: aa8ec786dd258b844ad624b87938260f
 DefaultImporter:
->>>>>>>> Stashed changes:10-minute wonder/Assets/Scenes/GameClear.unity.meta
->>>>>>> origin/ssm
   externalObjects: {}
   userData: 
   assetBundleName: 
