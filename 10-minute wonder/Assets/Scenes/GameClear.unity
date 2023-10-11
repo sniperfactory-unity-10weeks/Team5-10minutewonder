@@ -291,6 +291,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 309772857512026465, guid: af650d26d8f587145b3eee00d7cccea0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -415,6 +416,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> origin/ssm
     - target: {fileID: 4395513011388311388, guid: af650d26d8f587145b3eee00d7cccea0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -463,10 +466,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 5371790915177854060, guid: af650d26d8f587145b3eee00d7cccea0, type: 3}
       propertyPath: m_Spacing
       value: 30
       objectReference: {fileID: 0}
+=======
+>>>>>>> origin/ssm
     - target: {fileID: 5427809342578317264, guid: af650d26d8f587145b3eee00d7cccea0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -551,6 +557,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearSceneCanvas
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 6151493175937923584, guid: af650d26d8f587145b3eee00d7cccea0, type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 50
@@ -631,6 +638,8 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300022, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+=======
+>>>>>>> origin/ssm
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
