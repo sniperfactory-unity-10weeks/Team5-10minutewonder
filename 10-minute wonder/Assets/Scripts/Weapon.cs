@@ -10,28 +10,31 @@ public class Weapon : MonoBehaviour
     public int prefabId;
     public float damage;
     public int count;
-    private float speed;
-    private float atkSpeed;
+    public float speed;
 
     Player player;
 
     private float timeAfterSpawn;
 
 
-    private void Awake()
+    void Awake()
     {
-        atkSpeed = (1 / GameManager.instance.player.AttackSpeed);
         player = GetComponentInParent<Player>();
     }
 
-    private void FixedUpdate()
+    void Start()
+    {
+        speed = (1 / GameManager.instance.player.AttackSpeed);
+    }
+
+    void FixedUpdate()
     {
         switch (prefabId)
         {
             case 0:
                 timeAfterSpawn += Time.deltaTime;
 
-                if (timeAfterSpawn > atkSpeed)
+                if (timeAfterSpawn > speed)
                 {
                     timeAfterSpawn = 0f;
                     Fire();

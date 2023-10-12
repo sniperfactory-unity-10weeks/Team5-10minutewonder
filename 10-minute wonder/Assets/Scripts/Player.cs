@@ -11,19 +11,21 @@ public class Player : MonoBehaviour
     //public float AttackRange = 0; // 공격 범위 (보류)
     public float PlayerSpeed; // 플레이어 이동 속도
 
+    // 체력 관련
     private float currentHp;
     private float healTerm = 5;
     private float currentHealTime;
 
     public Vector3 newVelocity;
     private Rigidbody2D playerRB;
-    private float hAxis;
-    private float vAxis;
+    public Vector3 Axis;
 
+    SpriteRenderer sprite;
+    Animator anim;
     public Scanner scanner;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         /* 플레이어 프리펩쪽은 아직 손 못댔습니다.
         PlayerHP = PlayerPrefs.GetFloat("PlayerHP");
@@ -34,10 +36,17 @@ public class Player : MonoBehaviour
         */
         currentHp = PlayerHP;
         playerRB = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
         scanner = GetComponent<Scanner>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        Axis.x = Input.GetAxis("Horizontal");
+        Axis.y = Input.GetAxis("Vertical");
+    }
+
     void FixedUpdate()
     {
         // 플레이어의 체력이 0이 되면 정지
@@ -59,21 +68,21 @@ public class Player : MonoBehaviour
             }
         }
 
-        Move();
-    }
-
-    // 플레이어의 이동은 newVelocity 활용
-    void Move()
-    {
-        hAxis = Input.GetAxis("Horizontal");
-        vAxis = Input.GetAxis("Vertical");
-
-        float hSpeed = hAxis * PlayerSpeed;
-        float vSpeed = vAxis * PlayerSpeed;
+        float hSpeed = Axis.x * PlayerSpeed;
+        float vSpeed = Axis.y * PlayerSpeed;
 
         newVelocity = new Vector3(hSpeed, vSpeed, 0);
 
         playerRB.velocity = newVelocity;
+    }
+
+    void LateUpdate()
+    {
+        anim.SetFloat("Speed", Axis.magnitude);
+        if (Axis.x != 0)
+        {
+            sprite.flipX = Axis.x < 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -35,12 +35,15 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            Debug.Log("ÆÄ±«");
         }
     }
 
     private void Start()
     {
         statUpInLobby = GameObject.FindAnyObjectByType<StatUpInLobby>();
+        player = GetComponent<Player>();
+        pool = GetComponent<PoolManager>();
     }
 
     private void Update()
