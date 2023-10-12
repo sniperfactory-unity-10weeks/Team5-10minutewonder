@@ -11,17 +11,25 @@ public class Player : MonoBehaviour
     public float AttackSpeed;
     public float PlayerSpeed;
 
+    // 획득한 골드
+    public int getGold = 0;
+
     // 체력 관련
-    private float currentHp;
+    public float currentHp;
     private float healTerm = 5;
     private float currentHealTime;
 
+    // 사망처리
+    public bool deadFlag;
+
+    // 이동관련
     public Vector3 newVelocity;
     private Rigidbody2D playerRB;
     public Vector3 Axis;
-
     SpriteRenderer sprite;
     Animator anim;
+
+    // 몬스터 추적
     public Scanner scanner;
 
     // Start is called before the first frame update
@@ -34,6 +42,8 @@ public class Player : MonoBehaviour
         PlayerSpeed = GameManager.instance.moveSpeed;
 
         currentHp = PlayerHP;
+        deadFlag = false;
+
         playerRB = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         scanner = GetComponent<Scanner>();
@@ -51,7 +61,9 @@ public class Player : MonoBehaviour
         // 플레이어의 체력이 0이 되면 정지
         if (currentHp <= 0)
         {
+            deadFlag = true;
             playerRB.velocity = Vector3.zero;
+            GameManager.instance.gold += getGold;
             return;
         }
 
@@ -84,8 +96,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if(!deadFlag)
+        {
+            Drops drops = other.GetComponent<Drops>();
 
+            if (drops != null)
+            {
+                drops.Use(gameObject);
+            }
+        }
     }
 }
