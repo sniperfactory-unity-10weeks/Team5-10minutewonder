@@ -14,7 +14,7 @@ public class SceneChange : MonoBehaviour
     public void GameStartButton() //게임 플레이로 이동
     {
         Debug.Log("게임 바로 시작");
-        SceneManager.LoadScene("InGame");  //게임플레이 씬 이름
+        SceneManager.LoadScene("SampleScene");  //게임플레이 씬 이름
     }
 
     public void ReturnToStartScene() //게임 시작씬으로 이동
