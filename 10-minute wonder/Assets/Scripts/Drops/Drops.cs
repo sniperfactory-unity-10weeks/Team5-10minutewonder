@@ -1,9 +1,0 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface Drops
-{
-    // 입력으로 받는 target은 아이템 효과가 적용될 대상
-    void Use(GameObject target);
-}
