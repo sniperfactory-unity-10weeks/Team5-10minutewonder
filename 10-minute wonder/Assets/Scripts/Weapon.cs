@@ -29,9 +29,6 @@ public class Weapon : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player.deadFlag == true)
-            return;
-
         switch (prefabId)
         {
             case 0:
@@ -59,5 +56,6 @@ public class Weapon : MonoBehaviour
         bullet.position = transform.position;
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);
         bullet.GetComponent<Bullet>().Init(damage, count, dir);
+
     }
 }
