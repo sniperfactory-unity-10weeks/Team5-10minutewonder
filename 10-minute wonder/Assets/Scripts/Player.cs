@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
     public float PlayerSpeed;
 
     // 체력 관련
-    private float currentHp;
+    public float currentHp;
     private float healTerm = 5;
     private float currentHealTime;
 
@@ -23,6 +24,14 @@ public class Player : MonoBehaviour
     SpriteRenderer sprite;
     Animator anim;
     public Scanner scanner;
+
+    public Monster monster;
+
+    public int getGold = 0;
+
+    public static Player instance;
+
+    public string GameOver;
 
     // Start is called before the first frame update
     void Awake()
@@ -38,12 +47,27 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         scanner = GetComponent<Scanner>();
         anim = GetComponent<Animator>();
+
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
         Axis.x = Input.GetAxis("Horizontal");
         Axis.y = Input.GetAxis("Vertical");
+
+        if(currentHp < 0)
+        {
+            PlayerDie();
+        }
     }
 
     void FixedUpdate()
@@ -86,6 +110,15 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.tag == "Item")
+        {
 
+        }
+    }
+
+    public void PlayerDie()
+    {
+        //Time.timeScale = 0;
+        SceneManager.LoadScene(GameOver);
     }
 }

@@ -11,6 +11,8 @@ public class StatUpInLobby : MonoBehaviour
     public GameObject[] NotStatUp = new GameObject[3];
     public GameObject[] StatUpComPlete = new GameObject[3];
 
+    public bool isRef;
+
     public int NowGold()
     {
         return playergold;
@@ -63,7 +65,7 @@ public class StatUpInLobby : MonoBehaviour
 
     public void StatUpPlayer()//강화하기 버튼 눌렀을 때
     {
-        
+        isRef = true;
         if (stat.stat[0].gameObject.activeSelf == true)
         {
             StatUpButton(0);
@@ -100,7 +102,7 @@ public class StatUpInLobby : MonoBehaviour
     void StatUpButton(int i)
     {
 
-        if (playergold >= 10 && stat.statLevel[i] != 3)
+        if (playergold >= 10 && stat.statLevel[i] <= 3)
         {
             playergold -= 10; //10골드 소모
             stat.statLevel[i]++;

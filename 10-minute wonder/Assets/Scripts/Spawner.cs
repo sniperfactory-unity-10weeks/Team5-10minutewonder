@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     float timer;
 
     public float spawnTime;
-
+    public bool isChangePhase = false;
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();
@@ -80,6 +80,7 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(PhaseChangeTime);
         Phase++;
+        isChangePhase = true;
         CoroutineCheck = false;
     }
 }

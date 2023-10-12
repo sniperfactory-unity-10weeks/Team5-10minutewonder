@@ -35,6 +35,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake()
     {
+        player = FindObjectOfType<Player>();
+        pool = FindObjectOfType<PoolManager>();
+
+
         if (instance == null)
         {
             instance = this;
@@ -49,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.DeleteAll();
         initialHp = PlayerPrefs.GetFloat("InitialPlayerHP", initialHp);
         initialRecover = PlayerPrefs.GetFloat("InitialRecoverHP", initialRecover);
         initialAttckPower = PlayerPrefs.GetFloat("InitialAttackDamage", initialAttckPower);
@@ -78,6 +83,12 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("AttackDamage", attckPower);
         PlayerPrefs.SetFloat("AttackSpeed", attackCoolTime);
         PlayerPrefs.SetFloat("PlayerSpeed", moveSpeed);
+
+        hp = PlayerPrefs.GetFloat("PlayerHP", hp);
+        recover = PlayerPrefs.GetFloat("RecoverHP", recover);
+        attckPower = PlayerPrefs.GetFloat("AttackDamage", attckPower);
+        attackCoolTime = PlayerPrefs.GetFloat("AttackSpeed", attackCoolTime);
+        moveSpeed = PlayerPrefs.GetFloat("PlayerSpeed", moveSpeed);
 
         PlayerPrefs.Save();
     }

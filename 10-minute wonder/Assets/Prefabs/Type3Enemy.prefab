@@ -269,9 +269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68305d8c583340449eb207fb922042e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterTyoe: 0
+  MonsterType: 0
   target: {fileID: 0}
+  MonsterHP: 60
+  MonsterAD: 10
   speed: 1.5
+  spawn: {fileID: 2490166056049172020, guid: 450df957dc701e849befa7ba5c0c4fb7, type: 3}
 --- !u!114 &352450631343482984
 MonoBehaviour:
   m_ObjectHideFlags: 0

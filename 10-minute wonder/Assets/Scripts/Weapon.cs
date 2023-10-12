@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     public int id;
     public int prefabId;
-    public float damage;
+    public float damage = 10;
     public int count;
     public float speed;
 
@@ -24,14 +24,14 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        speed = (1 / GameManager.instance.player.AttackSpeed);
+        speed = (1 / player.AttackSpeed);
     }
 
     void FixedUpdate()
     {
         switch (prefabId)
         {
-            case 0:
+            case 3:
                 timeAfterSpawn += Time.deltaTime;
 
                 if (timeAfterSpawn > speed)

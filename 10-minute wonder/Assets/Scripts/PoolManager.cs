@@ -9,6 +9,8 @@ public class PoolManager : MonoBehaviour
 
     List<GameObject>[] pools;
 
+    public static PoolManager instance;
+
 
     private void Awake()
     {
@@ -17,6 +19,16 @@ public class PoolManager : MonoBehaviour
         for (int index = 0; index < pools.Length; index++)
         {
             pools[index] = new List<GameObject>();
+        }
+
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 

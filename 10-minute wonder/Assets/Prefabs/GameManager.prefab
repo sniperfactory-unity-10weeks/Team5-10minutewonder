@@ -46,11 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   pool: {fileID: 0}
-  attckPower: 100
-  attackCoolTime: 1
+  initialHp: 100
+  initialRecover: 0
+  initialAttckPower: 10
+  initialAttackCoolTime: 3
+  initialMoveSpeed: 8
   hp: 100
-  recover: 10
-  moveSpeed: 20
+  recover: 0
+  attckPower: 10
+  attackCoolTime: 3
+  moveSpeed: 8
   gold: 1000
   playTime: 0
   kill: 0
