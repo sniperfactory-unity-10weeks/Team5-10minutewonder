@@ -77,11 +77,11 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
-        anim.SetFloat("Speed", Axis.magnitude);
+        /*anim.SetFloat("Speed", Axis.magnitude);
         if (Axis.x != 0)
         {
             sprite.flipX = Axis.x < 0;
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

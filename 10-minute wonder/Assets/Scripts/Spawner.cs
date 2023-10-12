@@ -50,28 +50,52 @@ public class Spawner : MonoBehaviour
 
             case 1:
                 enemy = GameManager.instance.pool.Get(0);
+<<<<<<< Updated upstream
+=======
+                enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //자기자신 0에 포함
+>>>>>>> Stashed changes
                 break;
 
             case 2:
                 enemy = GameManager.instance.pool.Get(Random.Range(0, 2));
+<<<<<<< Updated upstream
+=======
+                enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //자기자신 0에 포함
+>>>>>>> Stashed changes
                 break;
 
             case 3:
                 int Randnum = Random.Range(0, 2);
                 if (Randnum == 0) enemy = GameManager.instance.pool.Get(0);
                 else enemy = GameManager.instance.pool.Get(2);
+<<<<<<< Updated upstream
+=======
+                enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //자기자신 0에 포함
+>>>>>>> Stashed changes
                 break;
 
             case 4:
                 enemy = GameManager.instance.pool.Get(Random.Range(1, 3));
+<<<<<<< Updated upstream
+=======
+                enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //자기자신 0에 포함
+>>>>>>> Stashed changes
                 break;
 
             case 5:
                 enemy = GameManager.instance.pool.Get(Random.Range(0, 3));
+<<<<<<< Updated upstream
                 break;
 
         }
          enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //자기자신 0에 포함
+=======
+                enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; //자기자신 0에 포함
+                break;
+
+        }
+
+>>>>>>> Stashed changes
     }
 
     IEnumerator ChangePhase()
