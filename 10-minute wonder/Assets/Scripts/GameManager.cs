@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    StatUpInLobby statUpInLobby;
+
     public Player player;
     public PoolManager pool;
 
