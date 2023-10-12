@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float PlayerHP; //플레이어 최대 체력
-    public float recoverHP; //플레이어 체력 회복량
-    public float AttackDamage; //플레이어 공격력
-    public float AttackSpeed; //초당 공격 속도
-    //public float AttackRange = 0; // 공격 범위 (보류)
-    public float PlayerSpeed; // 플레이어 이동 속도
+    //게임 매니저에 저장되어있는 스텟치 받아오기
+    public float PlayerHP;
+    public float recoverHP;
+    public float AttackDamage;
+    public float AttackSpeed;
+    public float PlayerSpeed;
 
     // 체력 관련
     private float currentHp;
@@ -27,13 +27,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        /* 플레이어 프리펩쪽은 아직 손 못댔습니다.
-        PlayerHP = PlayerPrefs.GetFloat("PlayerHP");
-        recoverHP = PlayerPrefs.GetFloat("recoverHP");
-        AttackDamage = PlayerPrefs.GetFloat("AttakDamage");
-        AttackSpeed = PlayerPrefs.GetFloat("AttackSpeed");
-        PlayerSpeed = PlayerPrefs.GetFloat("PlayerSpeed");
-        */
+        PlayerHP = GameManager.instance.hp;
+        recoverHP = GameManager.instance.recover;
+        AttackDamage = GameManager.instance.attckPower;
+        AttackSpeed = GameManager.instance.attackCoolTime;
+        PlayerSpeed = GameManager.instance.moveSpeed;
+
         currentHp = PlayerHP;
         playerRB = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
