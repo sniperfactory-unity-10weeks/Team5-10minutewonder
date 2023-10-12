@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Player player;
+    StatUpInLobby statUpInLobby;
 
     //임시스텟
     public float attckPower = 100; //공격력
@@ -33,5 +34,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        statUpInLobby = FindAnyObjectByType<StatUpInLobby>();
+    }
+
+    private void Update()
+    {
+        gold = statUpInLobby.NowGold();
     }
 }

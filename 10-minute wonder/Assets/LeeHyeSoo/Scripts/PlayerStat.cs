@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerStat : MonoBehaviour
 {
     GameManager gameManager;
+    
 
     public Text attckpowerText; //공격력 텍스트
     public Text attackCoolTimeText; //공격쿨타임 텍스트
@@ -19,7 +20,7 @@ public class PlayerStat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find(name: "GameManager").GetComponent<GameManager>();
         
 
 
@@ -29,6 +30,12 @@ public class PlayerStat : MonoBehaviour
     void Update()
     {
         
+        StatTextInLobby();
+        
+    }
+
+    void StatTextInLobby()
+    {
         attckpowerText.text = "공격력: " + gameManager.attckPower.ToString();
         attackCoolTimeText.text = "공격 쿨타임: " + gameManager.attackCoolTime.ToString();
         hpText.text = "HP: " + gameManager.hp.ToString();
