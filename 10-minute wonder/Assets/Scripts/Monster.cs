@@ -25,7 +25,7 @@ public class Monster : MonoBehaviour
 
     public float speed;
 
-    private MonsterSpawn monsterSpawn;
+    private Spawner spawn;
 
     SpriteRenderer spriter;
     Rigidbody2D rigid;
@@ -44,15 +44,15 @@ public class Monster : MonoBehaviour
         switch (MonsterTyoe)
         {
             case 1:
-                MonsterHP = monsterSpawn.Phase * 20;
+                MonsterHP = spawn.Phase * 20;
                 break;
 
             case 2:
-                MonsterHP = monsterSpawn.Phase * 40;
+                MonsterHP = spawn.Phase * 40;
                 break;
 
             case 3:
-                MonsterHP = monsterSpawn.Phase * 10;
+                MonsterHP = spawn.Phase * 10;
                 MonsterAD = 20;
                 break;
 
@@ -76,5 +76,10 @@ public class Monster : MonoBehaviour
     {
         if (!isLive) return;
         spriter.flipX = target.position.x < rigid.position.x;
+    }
+
+    private void OnEnable()
+    {
+        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
     }
 }
