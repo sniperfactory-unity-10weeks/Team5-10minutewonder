@@ -159,6 +159,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e0655de1ba63e04f9305f77be1cc5c1, type: 2}
   - {fileID: 11400000, guid: da3bad29cbe2014419742eda29b2093a, type: 2}
   - {fileID: 11400000, guid: 749de05992a03544b84dc5efc2f13230, type: 2}
+  - {fileID: 11400000, guid: 5506910241885ac4899dca356915572d, type: 2}
+  - {fileID: 11400000, guid: 90c8a3a7a66cda5408da3a6a30b30018, type: 2}
+  - {fileID: 11400000, guid: 73cac73a4d5fd454a82dc4805a180b35, type: 2}
   image1: {fileID: 8601376872909389282}
   image2: {fileID: 5955793977938863485}
   image3: {fileID: 1103033432578167287}
@@ -819,7 +822,7 @@ GameObject:
   - component: {fileID: 6193610287842780325}
   - component: {fileID: 266991018318251291}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: ItemText (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -976,7 +979,7 @@ GameObject:
   - component: {fileID: 7844030820049418686}
   - component: {fileID: 2476936102091595434}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: ItemText (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1341,7 +1344,7 @@ GameObject:
   - component: {fileID: 3344315661688010316}
   - component: {fileID: 2916588955591879935}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: ItemText (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
