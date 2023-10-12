@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour
 
     [Tooltip("Monster의 타입 번호 / 1 : 일반, 2 : 탱커, 3 : 원거리")]
     [Range(1, 3)]
-    public int MonsterType;
+    public int MonsterTyoe;
 
     public Rigidbody2D target;
 
@@ -25,9 +25,10 @@ public class Monster : MonoBehaviour
 
     public float speed;
 
+    private MonsterSpawn monsterSpawn;
+
     SpriteRenderer spriter;
     Rigidbody2D rigid;
-    public Spawner spawner;
 
     private bool isLive = true;
 
@@ -40,18 +41,18 @@ public class Monster : MonoBehaviour
     void Start()
     {
 
-        switch (MonsterType)
+        switch (MonsterTyoe)
         {
             case 1:
-                MonsterHP = spawner.Phase * 20;
+                MonsterHP = monsterSpawn.Phase * 20;
                 break;
 
             case 2:
-                MonsterHP = spawner.Phase * 40;
+                MonsterHP = monsterSpawn.Phase * 40;
                 break;
 
             case 3:
-                MonsterHP = spawner.Phase * 10;
+                MonsterHP = monsterSpawn.Phase * 10;
                 MonsterAD = 20;
                 break;
 
@@ -75,10 +76,5 @@ public class Monster : MonoBehaviour
     {
         if (!isLive) return;
         spriter.flipX = target.position.x < rigid.position.x;
-    }
-
-    private void OnEnable()
-    {
-        target = GameManager.instance.player.GetComponent<Rigidbody2D>();
     }
 }
