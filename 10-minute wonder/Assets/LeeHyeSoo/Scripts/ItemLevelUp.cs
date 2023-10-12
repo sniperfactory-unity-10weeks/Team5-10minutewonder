@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ItemLevelUp : MonoBehaviour
 {
+    RandomItem randomItem;
     public GameObject itemLevelUpWindow; // 페이즈 끝 / 아이템 강화
     public GameObject playerStatWindow; // 캐릭터 스텟창
     bool isPause; //플레이 화면 일시정지
 
     private void Start()
     {
+        randomItem = FindAnyObjectByType<RandomItem>(); 
+
         itemLevelUpWindow.SetActive(false);
         isPause = false;
     }
@@ -28,6 +31,7 @@ public class ItemLevelUp : MonoBehaviour
             {
                 Time.timeScale = 0;
                 itemLevelUpWindow.SetActive(true);
+                randomItem.GetRandomItem();
                 isPause = true;
                 
                 Debug.Log("일시정지 활성화");
