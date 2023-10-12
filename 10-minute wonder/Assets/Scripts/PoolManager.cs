@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
+
     public GameObject[] prefabs;
 
     List<GameObject>[] pools;
@@ -36,6 +37,7 @@ public class PoolManager : MonoBehaviour
         if (!select)
         {
             select = Instantiate(prefabs[index], transform);
+            pools[index].Add(select);
         }
 
         return select;

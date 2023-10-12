@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private float hAxis;
     private float vAxis;
 
+    public Scanner scanner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +34,11 @@ public class Player : MonoBehaviour
         */
         currentHp = PlayerHP;
         playerRB = GetComponent<Rigidbody2D>();
+        scanner = GetComponent<Scanner>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // 플레이어의 체력이 0이 되면 정지
         if (currentHp <= 0)
@@ -52,6 +55,7 @@ public class Player : MonoBehaviour
             if (currentHp <= PlayerHP)
             {
                 currentHp += recoverHP;
+                Debug.Log(currentHp);
             }
         }
 
@@ -72,23 +76,8 @@ public class Player : MonoBehaviour
         playerRB.velocity = newVelocity;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 몬스터 접촉 시
-        if (other.tag == "Enemy")
-        {
-            PlayerHP -= 10f;
-            Debug.Log("hit");
-        }
-        // 근접 공격 피격 시
-        if (other.tag == "MeleeAtk")
-        {
-            PlayerHP -= 10f;
-        }
-        // 원거리 공격 피격 시
-        if (other.tag == "RangedAtk")
-        {
-            PlayerHP -= 20f;
-        }
+
     }
 }

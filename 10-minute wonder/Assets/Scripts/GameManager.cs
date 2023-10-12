@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Player player;
+    public PoolManager pool;
 
     //임시스텟
     public float attckPower = 100; //공격력
