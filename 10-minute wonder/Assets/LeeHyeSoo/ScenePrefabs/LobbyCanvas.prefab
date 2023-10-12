@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 1352422095897892083}
   - component: {fileID: 1983456580743729410}
   m_Layer: 5
-  m_Name: NotStatUp
+  m_Name: NotStatUp (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 6280215864785552369}
   - component: {fileID: 3137608807464448415}
   m_Layer: 5
-  m_Name: StatUpConPlete
+  m_Name: StatUpComPlete (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 6210169459487468612}
   - component: {fileID: 7705177819127210978}
   m_Layer: 5
-  m_Name: StatUpConPlete
+  m_Name: StatUpComPlete (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1261,7 +1261,7 @@ GameObject:
   - component: {fileID: 3234331309718702119}
   - component: {fileID: 5034502332942838890}
   m_Layer: 5
-  m_Name: NotStatUp
+  m_Name: NotStatUp (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1907,7 +1907,7 @@ GameObject:
   - component: {fileID: 7965399640089209877}
   - component: {fileID: 9022423086767937102}
   m_Layer: 5
-  m_Name: NotStatUp
+  m_Name: NotStatUp (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3598,7 +3598,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playergold: 0
-  playerstatLevel: 0
+  NotStatUp:
+  - {fileID: 4466057811340560889}
+  - {fileID: 835463884714356004}
+  - {fileID: 3271367137930508077}
+  StatUpComPlete:
+  - {fileID: 2326515946653428940}
+  - {fileID: 7663648776636812536}
+  - {fileID: 1920605488555896062}
 --- !u!1 &7151497552229703728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,7 +3958,7 @@ GameObject:
   - component: {fileID: 379847589241420475}
   - component: {fileID: 7610603289467664002}
   m_Layer: 5
-  m_Name: StatUpConPlete
+  m_Name: StatUpComPlete (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

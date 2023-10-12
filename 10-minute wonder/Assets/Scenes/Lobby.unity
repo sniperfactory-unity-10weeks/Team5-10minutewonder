@@ -236,12 +236,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  pool: {fileID: 0}
   attckPower: 100
   attackCoolTime: 1
   hp: 100
   recover: 10
   moveSpeed: 20
-  gold: 1000
+  gold: 100
   playTime: 0
   kill: 0
   goldScore: 0

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public float playTime; //플레이 시간
     public int kill = 0; //처치한 몬스터 수
     public int goldScore = 0; //플레이에서 획득한 골드량
-    
+
 
     //Sinleton Pattern
     public static GameManager instance;
@@ -36,5 +36,15 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        statUpInLobby = GameObject.FindAnyObjectByType<StatUpInLobby>();
+    }
+
+    private void Update()
+    {
+        gold = statUpInLobby.NowGold();
     }
 }

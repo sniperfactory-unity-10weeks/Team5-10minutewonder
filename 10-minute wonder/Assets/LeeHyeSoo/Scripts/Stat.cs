@@ -21,30 +21,36 @@ public class Stat : MonoBehaviour
 
     private void Update()
     {
-        //if(stat[0].name == "HP" && gameObject.)
-        //{
-        //    statLevel[0] = statUpInLobby.NowStatLevel();
-        //}
-        //else if (stat[1].name == "recover" && stat[1])
-        //{
-        //    statLevel[1] = statUpInLobby.NowStatLevel();
-        //}
-        //else if (stat[2].name == "attckPower" && stat[2])
-        //{
-        //    statLevel[2] = statUpInLobby.NowStatLevel();
-        //}
-        //else if (stat[3].name == "attackCoolTime" && stat[3])
-        //{
-        //    statLevel[3] = statUpInLobby.NowStatLevel();
-        //}
-        //else if (stat[4].name == "attackRange" && stat[4])
-        //{
-        //    statLevel[4] = statUpInLobby.NowStatLevel();
-        //}
-        //else if (stat[5].name == "moveSpeed" && stat[5])
-        //{
-        //    statLevel[5] = statUpInLobby.NowStatLevel();
-        //}
+        if (stat[0].gameObject.activeSelf == true)
+        {
+            statLevel[0] = statUpInLobby.NowStatLevel();
+            
+        }
+        else if (stat[1].gameObject.activeSelf == true)
+        {
+            statLevel[1] = statUpInLobby.NowStatLevel();
+            
+        }
+        else if (stat[2].gameObject.activeSelf == true)
+        {
+            statLevel[2] = statUpInLobby.NowStatLevel();
+            
+        }
+        else if (stat[3].gameObject.activeSelf == true)
+        {
+            statLevel[3] = statUpInLobby.NowStatLevel();
+            
+        }
+        else if (stat[4].gameObject.activeSelf == true)
+        {
+            statLevel[4] = statUpInLobby.NowStatLevel();
+            
+        }
+        else if (stat[5].gameObject.activeSelf == true)
+        {
+            statLevel[5] = statUpInLobby.NowStatLevel();
+            
+        }
 
     }
 }
