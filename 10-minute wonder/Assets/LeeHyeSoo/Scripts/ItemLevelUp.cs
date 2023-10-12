@@ -8,12 +8,8 @@ public class ItemLevelUp : MonoBehaviour
     public GameObject playerStatWindow; // 캐릭터 스텟창
     bool isPause; //플레이 화면 일시정지
 
-    RandomItem randomItem;
-
     private void Start()
     {
-        randomItem = FindAnyObjectByType<RandomItem>();
-
         itemLevelUpWindow.SetActive(false);
         isPause = false;
     }
@@ -32,12 +28,8 @@ public class ItemLevelUp : MonoBehaviour
             {
                 Time.timeScale = 0;
                 itemLevelUpWindow.SetActive(true);
-                randomItem.GetRandomItem(); //랜덤으로 아이템(유물) 3가지 정해짐
-
                 isPause = true;
                 
-
-
                 Debug.Log("일시정지 활성화");
 
                 return;
