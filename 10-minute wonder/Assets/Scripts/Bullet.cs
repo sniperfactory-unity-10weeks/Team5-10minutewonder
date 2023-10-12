@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 8f; // 총알 속도
-    private Rigidbody2D bulletRigidbody; // 총알 리지드 바디
+    public float damage;
+    public float per;
 
-    // Start is called before the first frame update
-    void Start()
+    public float speed = 8f; // 총알 속도
+
+    private Rigidbody2D bulletRigidbody; // 총알 리지드 바디
+    
+    void Awake()
     {
         bulletRigidbody = GetComponent<Rigidbody2D>();
-        bulletRigidbody.velocity = Player.dir * speed; // 총알의 방향벡터를 받아오고 거기에 속도를 곱해줌
-
-        Destroy(gameObject, 3f); // 이거는 오브젝트 풀링으로 다시 작성하려고 함
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Init(float damdge, int per, Vector3 dir)
     {
+        this.damage = damdge;
+        this.per = per;
 
+        if (per > -1)
+        {
+            bulletRigidbody.velocity = dir * speed;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Enemy") || per == -1)
+        { return; }
+
+        per--;
+
+        if (per == -1)
+        {
+            bulletRigidbody.velocity = Vector2.zero;
+            gameObject.SetActive(false);
+        }
     }
 }
