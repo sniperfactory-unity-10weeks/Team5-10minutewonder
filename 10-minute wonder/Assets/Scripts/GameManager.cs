@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour
 
     //Sinleton Pattern
     public static GameManager instance;
-
-
     private void Awake()
     {
         if (instance == null)
@@ -68,7 +66,6 @@ public class GameManager : MonoBehaviour
     // PlayerPrefs를 사용하여 스텟을 저장
     public void SavePlayerStats()
     {
-<<<<<<< Updated upstream
         PlayerPrefs.SetFloat("InitialPlayerHP", initialHp);
         PlayerPrefs.SetFloat("InitialRecoverHP", initialRecover);
         PlayerPrefs.SetFloat("InitialAttackDamage", initialAttckPower);
@@ -83,9 +80,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerSpeed", moveSpeed);
 
         PlayerPrefs.Save();
-=======
-        //gold = statUpInLobby.NowGold();
->>>>>>> Stashed changes
     }
 
         private void Update()
