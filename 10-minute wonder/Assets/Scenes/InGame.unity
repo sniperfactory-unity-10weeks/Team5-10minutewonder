@@ -208,17 +208,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 769068}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 100000000
-      - X: -100000000
-        Y: 100000000
-      - X: -100000000
-        Y: -100000000
-      - X: 100000000
-        Y: -100000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 9.99997, y: -10}
@@ -4429,7 +4419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &9489698
 Grid:
   m_ObjectHideFlags: 0
@@ -4565,17 +4555,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 289406457}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 100000000
-      - X: -100000000
-        Y: 100000000
-      - X: -100000000
-        Y: -100000000
-      - X: 100000000
-        Y: -100000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 9.99997, y: -10}
@@ -8871,9 +8851,8 @@ MonoBehaviour:
   recoverHP: 0
   AttackDamage: 10
   AttackSpeed: 2
-  PlayerSpeed: 10
+  PlayerSpeed: 6
   newVelocity: {x: 0, y: 0, z: 0}
-  bullet: {fileID: 1456519662782417668, guid: 9cd191e036a77d349b0b4078227b6469, type: 3}
 --- !u!50 &793345460
 Rigidbody2D:
   serializedVersion: 4
@@ -9012,6 +8991,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1475193075}
+  - {fileID: 2000128562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &953138080
@@ -9152,17 +9132,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 973159216}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 100000000
-      - X: -100000000
-        Y: 100000000
-      - X: -100000000
-        Y: -100000000
-      - X: 100000000
-        Y: -100000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 9.99997, y: -10}
@@ -13399,6 +13369,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 793345459}
+  attckPower: 100
+  attackCoolTime: 1
+  hp: 100
+  recover: 10
+  moveSpeed: 20
+  gold: 1000
+  playTime: 0
+  kill: 0
+  goldScore: 0
 --- !u!4 &1080169521
 Transform:
   m_ObjectHideFlags: 0
@@ -13499,17 +13478,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1099876625}
-    m_ColliderPaths:
-    - - X: 100000000
-        Y: 100000000
-      - X: -100000000
-        Y: 100000000
-      - X: -100000000
-        Y: -100000000
-      - X: 100000000
-        Y: -100000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: 9.99997, y: -10}
@@ -18107,7 +18076,7 @@ GameObject:
   - component: {fileID: 2000128562}
   - component: {fileID: 2000128561}
   m_Layer: 0
-  m_Name: BulletPool
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18125,8 +18094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2cd171e61c76a944956d171b0948453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 1456519662782417668, guid: 9cd191e036a77d349b0b4078227b6469, type: 3}
+  bulletPrefabs: {fileID: 1456519662782417668, guid: 9cd191e036a77d349b0b4078227b6469, type: 3}
+  count: 3
+  AttackSpeed: 2
 --- !u!4 &2000128562
 Transform:
   m_ObjectHideFlags: 0
@@ -18135,12 +18105,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000128560}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 793345463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4759385867864930047
 PrefabInstance:
@@ -18222,4 +18192,3 @@ SceneRoots:
   - {fileID: 4759385867864930047}
   - {fileID: 953138080}
   - {fileID: 290697807}
-  - {fileID: 2000128562}
