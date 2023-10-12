@@ -13,15 +13,15 @@ public class GameManager : MonoBehaviour
     public float initialHp = 100f;
     public float initialRecover = 0f;
     public float initialAttckPower = 10f;
-    public float initialAttackCoolTime = 2f;
-    public float initialMoveSpeed = 5f;
+    public float initialAttackCoolTime = 3f;
+    public float initialMoveSpeed = 8f;
 
     //°­È­ ½ºÅÝ
     public float hp = 100f;
     public float recover = 0f;
     public float attckPower = 10f;
-    public float attackCoolTime = 2f;
-    public float moveSpeed = 5f;
+    public float attackCoolTime = 3f;
+    public float moveSpeed = 8f;
 
     public int gold = 1000; //°ñµå·®
 
