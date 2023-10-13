@@ -72,9 +72,9 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerHP", PlayerPrefs.GetFloat("InitialPlayerHP"));
         PlayerPrefs.SetFloat("RecoverHP", PlayerPrefs.GetFloat("InitialRecoverHP"));
         PlayerPrefs.SetFloat("AttackDamage", PlayerPrefs.GetFloat("InitialAttackDamage"));
-        PlayerPrefs.SetFloat("AttackSpeed", PlayerPrefs.GetFloat("InitialPlayerSpeed"));
-        PlayerPrefs.SetFloat("PlayerSpeed", PlayerPrefs.GetInt("InitialGold", initialGold));
-        PlayerPrefs.SetInt("Gold", initialGold);
+        PlayerPrefs.SetFloat("AttackSpeed", PlayerPrefs.GetFloat("InitialAttackSpeed"));
+        PlayerPrefs.SetFloat("PlayerSpeed", PlayerPrefs.GetInt("InitialPlayerSpeed"));
+        PlayerPrefs.SetInt("Gold", PlayerPrefs.GetInt("InitialGold"));
 
         //Debug.Log(PlayerPrefs.GetFloat("PlayerHP"));
 
