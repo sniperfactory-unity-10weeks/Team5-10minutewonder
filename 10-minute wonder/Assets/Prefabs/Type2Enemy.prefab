@@ -167,7 +167,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -189,8 +189,13 @@ MonoBehaviour:
   target: {fileID: 0}
   MonsterHP: 40
   MonsterAD: 10
+  initialHP: 0
   speed: 1.5
   spawn: {fileID: 2490166056049172020, guid: 450df957dc701e849befa7ba5c0c4fb7, type: 3}
+  items:
+  - {fileID: 6178861705170187357, guid: a36b2e5c4b00dc345877379ed6295843, type: 3}
+  - {fileID: 5638821167000244543, guid: 01489b9912f231c409c4762ccc0563b2, type: 3}
+  - {fileID: 3922815904067413222, guid: 937ba4aa3ba64a94aac66bca8b1e5df2, type: 3}
 --- !u!114 &6411761880322059630
 MonoBehaviour:
   m_ObjectHideFlags: 0

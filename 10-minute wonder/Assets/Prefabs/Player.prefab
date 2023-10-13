@@ -199,17 +199,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHP: 100
-  recoverHP: 5
+  recoverHP: 0
   AttackDamage: 10
-  AttackSpeed: 10
-  PlayerSpeed: 6
+  AttackSpeed: 3
+  PlayerSpeed: 8
   currentHp: 0
   newVelocity: {x: 0, y: 0, z: 0}
   Axis: {x: 0, y: 0, z: 0}
   scanner: {fileID: 0}
   monster: {fileID: 0}
   getGold: 0
-  GameOver: GameClear
+  GameOver: GameOver
+  gameStart: 1
 --- !u!114 &3988638832281662944
 MonoBehaviour:
   m_ObjectHideFlags: 0

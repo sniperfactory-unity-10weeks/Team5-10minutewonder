@@ -12,31 +12,31 @@ public class Stat : MonoBehaviour
 
     public void EnhancePlayerHP() // 최대체력
     {
-        GameManager.instance.hp += 10f;
+        GameManager.instance.hp += 50f;
         GameManager.instance.SavePlayerStats();
     }
 
     public void EnhanceRecoverHP() // 체력재생
     {
-        GameManager.instance.recover += 10f;
+        GameManager.instance.recover += 5;
         GameManager.instance.SavePlayerStats();
     }
 
     public void EnhanceAttackDamage() // 공격력
     {
-        GameManager.instance.attckPower += 10f;
+        GameManager.instance.attckPower += 5f;
         GameManager.instance.SavePlayerStats();
     }
 
     public void EnhanceAttackSpeed() // 공격속도
     {
-        GameManager.instance.attackCoolTime += 10f;
+        GameManager.instance.attackCoolTime += 1f;
         GameManager.instance.SavePlayerStats();
     }
 
     public void EnhancePlayerSpeed() // 이동속도
     {
-        GameManager.instance.moveSpeed += 10f;
+        GameManager.instance.moveSpeed += 1f;
         GameManager.instance.SavePlayerStats();
     }
 

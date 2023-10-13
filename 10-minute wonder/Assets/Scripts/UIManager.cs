@@ -70,12 +70,12 @@ public class UIManager : MonoBehaviour
     void PauseStatus()
     {
         //캐릭터 능력치 현황 상태창에 표기
-        Damage.text = gameManager.attckPower.ToString();
-        AttackSpeed.text = gameManager.attackCoolTime.ToString();
-        MoveSpeed.text = gameManager.moveSpeed.ToString();
-        Health.text = gameManager.hp.ToString();
-        HealthRcover.text = gameManager.recover.ToString();
-        Gold.text = PlayGold.text = gameManager.gold.ToString();
+        Damage.text = PlayerPrefs.GetFloat("PlayerHP").ToString();
+        AttackSpeed.text = PlayerPrefs.GetFloat("RecoverHP").ToString();
+        MoveSpeed.text = PlayerPrefs.GetFloat("AttackDamage").ToString();
+        Health.text = PlayerPrefs.GetFloat("AttackSpeed").ToString();
+        HealthRcover.text = PlayerPrefs.GetFloat("PlayerSpeed").ToString();
+        Gold.text = PlayGold.text = PlayerPrefs.GetInt("Gold").ToString();
     }
 
 }

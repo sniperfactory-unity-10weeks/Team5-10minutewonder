@@ -33,6 +33,7 @@ public class Monster : MonoBehaviour
 
     private bool isLive = true;
 
+    public GameObject[] items;
     private void Awake()
     {
         spriter = GetComponent<SpriteRenderer>();
@@ -98,6 +99,7 @@ public class Monster : MonoBehaviour
     {
         //Destroy(this.gameObject);
         MonsterHP = initialHP;
+        ItemDrop();
         this.gameObject.SetActive(false);
     }
 
@@ -107,14 +109,26 @@ public class Monster : MonoBehaviour
         {
             MonsterHP -= GameManager.instance.player.AttackDamage;
         }
-
+        if (collision.tag == "Player")
+        {
+            GameManager.instance.player.currentHp -= MonsterAD;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Player")
+
+    }
+
+    private void ItemDrop()
+    {
+        int VariableNum = Random.Range(0, 10);
+        int itemNum = 0;
+
+        if (VariableNum == 0 || VariableNum == 1) //20%È®·ü µå·Ó
         {
-            GameManager.instance.player.currentHp -= MonsterAD;
-        }
+            itemNum = Random.Range(0, items.Length);
+            Instantiate(items[itemNum], transform.position, Quaternion.identity);
+        }    
     }
 }

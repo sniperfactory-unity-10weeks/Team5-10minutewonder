@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public float initialAttckPower = 10f;
     public float initialAttackCoolTime = 3f;
     public float initialMoveSpeed = 8f;
+    public int initialGold = 1000; //골드량
 
     //강화 스텟
     public float hp = 100f;
@@ -22,7 +23,6 @@ public class GameManager : MonoBehaviour
     public float attckPower = 10f;
     public float attackCoolTime = 3f;
     public float moveSpeed = 8f;
-
     public int gold = 1000; //골드량
 
     //게임 클리어오버 표시
@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake()
     {
+
         player = FindObjectOfType<Player>();
         pool = FindObjectOfType<PoolManager>();
 
@@ -53,29 +54,37 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        //게임 시작 시 초기화
         PlayerPrefs.DeleteAll();
-        initialHp = PlayerPrefs.GetFloat("InitialPlayerHP", initialHp);
-        initialRecover = PlayerPrefs.GetFloat("InitialRecoverHP", initialRecover);
-        initialAttckPower = PlayerPrefs.GetFloat("InitialAttackDamage", initialAttckPower);
-        initialAttackCoolTime = PlayerPrefs.GetFloat("InitialAttackSpeed", initialAttackCoolTime);
-        initialMoveSpeed = PlayerPrefs.GetFloat("InitialPlayerSpeed", initialMoveSpeed);
 
-        // 강화된 스텟 로드 (강화되지 않았다면 초기 스텟으로 초기화)
-        hp = PlayerPrefs.GetFloat("PlayerHP", initialHp);
-        recover = PlayerPrefs.GetFloat("RecoverHP", initialRecover);
-        attckPower = PlayerPrefs.GetFloat("AttackDamage", initialAttckPower);
-        attackCoolTime = PlayerPrefs.GetFloat("AttackSpeed", initialAttackCoolTime);
-        moveSpeed = PlayerPrefs.GetFloat("PlayerSpeed", initialMoveSpeed);
-    }
-
-    // PlayerPrefs를 사용하여 스텟을 저장
-    public void SavePlayerStats()
-    {
+        //초기값으로 키값 설정
         PlayerPrefs.SetFloat("InitialPlayerHP", initialHp);
         PlayerPrefs.SetFloat("InitialRecoverHP", initialRecover);
         PlayerPrefs.SetFloat("InitialAttackDamage", initialAttckPower);
         PlayerPrefs.SetFloat("InitialAttackSpeed", initialAttackCoolTime);
         PlayerPrefs.SetFloat("InitialPlayerSpeed", initialMoveSpeed);
+        PlayerPrefs.SetInt("InitialGold", initialGold);
+
+        //Debug.Log(PlayerPrefs.GetFloat("InitialPlayerHP"));
+
+
+        // 강화된 스텟 로드 (강화되지 않았다면 초기 스텟으로 초기화)
+        PlayerPrefs.SetFloat("PlayerHP", PlayerPrefs.GetFloat("InitialPlayerHP"));
+        PlayerPrefs.SetFloat("RecoverHP", PlayerPrefs.GetFloat("InitialRecoverHP"));
+        PlayerPrefs.SetFloat("AttackDamage", PlayerPrefs.GetFloat("InitialAttackDamage"));
+        PlayerPrefs.SetFloat("AttackSpeed", PlayerPrefs.GetFloat("InitialPlayerSpeed"));
+        PlayerPrefs.SetFloat("PlayerSpeed", PlayerPrefs.GetInt("InitialGold", initialGold));
+        PlayerPrefs.SetInt("Gold", initialGold);
+
+        //Debug.Log(PlayerPrefs.GetFloat("PlayerHP"));
+
+        
+
+    }
+
+    // PlayerPrefs를 사용하여 스텟을 저장
+    public void SavePlayerStats()
+    {
 
         // 강화된 스텟 저장
         PlayerPrefs.SetFloat("PlayerHP", hp);
@@ -83,22 +92,17 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("AttackDamage", attckPower);
         PlayerPrefs.SetFloat("AttackSpeed", attackCoolTime);
         PlayerPrefs.SetFloat("PlayerSpeed", moveSpeed);
+        PlayerPrefs.SetInt("Gold", gold);
 
-        hp = PlayerPrefs.GetFloat("PlayerHP", hp);
-        recover = PlayerPrefs.GetFloat("RecoverHP", recover);
-        attckPower = PlayerPrefs.GetFloat("AttackDamage", attckPower);
-        attackCoolTime = PlayerPrefs.GetFloat("AttackSpeed", attackCoolTime);
-        moveSpeed = PlayerPrefs.GetFloat("PlayerSpeed", moveSpeed);
+        Debug.Log(PlayerPrefs.GetFloat("PlayerHP"));
 
         PlayerPrefs.Save();
     }
 
-        private void Update()
+    private void Update()
     {
-        // 오류나서 잠시 주석처리 했습니다.
         //gold = statUpInLobby.NowGold();
     }
-
 }
 
 /* 강화 메서드

@@ -21,6 +21,15 @@ public class SceneChange : MonoBehaviour
     {
         Debug.Log("게임 바로 시작");
         Time.timeScale = 1;
+        GameManager.instance.player.PlayerHP = PlayerPrefs.GetFloat("PlayerHP");
+        GameManager.instance.player.recoverHP = PlayerPrefs.GetFloat("RecoverHP");
+        GameManager.instance.player.AttackDamage = PlayerPrefs.GetFloat("AttackDamage");
+        GameManager.instance.player.AttackSpeed = PlayerPrefs.GetFloat("AttackSpeed");
+        GameManager.instance.player.PlayerSpeed = PlayerPrefs.GetFloat("PlayerSpeed");
+        GameManager.instance.player.getGold = PlayerPrefs.GetInt("Gold");
+
+        GameManager.instance.player.currentHp = PlayerPrefs.GetFloat("PlayerHP");
+
         SceneManager.LoadScene("InGameNew");  //게임플레이 씬 이름
     }
 

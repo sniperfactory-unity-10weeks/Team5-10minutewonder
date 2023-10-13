@@ -32,17 +32,12 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     public string GameOver;
+    public bool gameStart = true;
 
     // Start is called before the first frame update
     void Awake()
     {
-        PlayerHP = GameManager.instance.hp;
-        recoverHP = GameManager.instance.recover;
-        AttackDamage = GameManager.instance.attckPower;
-        AttackSpeed = GameManager.instance.attackCoolTime;
-        PlayerSpeed = GameManager.instance.moveSpeed;
 
-        currentHp = PlayerHP;
         playerRB = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         scanner = GetComponent<Scanner>();
@@ -59,12 +54,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+
+    }
+
     void Update()
     {
+        if (gameStart)
+        {
+            gameStart = false;
+
+        }
+
         Axis.x = Input.GetAxis("Horizontal");
         Axis.y = Input.GetAxis("Vertical");
 
-        if(currentHp < 0)
+        if (currentHp < 0)
         {
             PlayerDie();
         }
@@ -108,13 +114,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Item")
-        {
-
-        }
-    }
 
     public void PlayerDie()
     {

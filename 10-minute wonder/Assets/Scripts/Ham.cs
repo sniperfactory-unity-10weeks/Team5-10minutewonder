@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ham : MonoBehaviour, Drops
+public class Ham : MonoBehaviour
 {
     public float health = 50;
 
-    public void Use(GameObject target)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 최대체력보다 적은가
-        if (GameManager.instance.player.currentHp < GameManager.instance.hp)
+        if (collision.tag == "Player")
         {
-            // 회복량이 남은체력보다 작은가
-            if ((GameManager.instance.hp - GameManager.instance.player.currentHp) < health)
+            // 최대체력보다 적은가
+            if (GameManager.instance.player.currentHp < GameManager.instance.hp)
             {
-                // 크다면 남은체력만큼 회복
-                GameManager.instance.player.currentHp
-                    += (GameManager.instance.hp - GameManager.instance.player.currentHp);
+                // 회복량이 남은체력보다 작은가
+                if ((GameManager.instance.hp - GameManager.instance.player.currentHp) < health)
+                {
+                    // 크다면 남은체력만큼 회복
+                    GameManager.instance.player.currentHp
+                        += (GameManager.instance.hp - GameManager.instance.player.currentHp);
+                }
+                else
+                {
+                    // 작다면 회복량만큼 회복
+                    GameManager.instance.player.currentHp += health;
+                }
             }
-            else
-            {
-                // 작다면 회복량만큼 회복
-                GameManager.instance.player.currentHp += health;
-            }
+            Debug.Log("햄!");
+            Destroy(this.gameObject);
         }
-        Debug.Log("햄!");
-        Destroy(gameObject);
+
     }
 }
